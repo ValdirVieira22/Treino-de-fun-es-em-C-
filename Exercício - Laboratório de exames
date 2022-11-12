@@ -1,0 +1,69 @@
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+void escolhas_h() {
+	cout << "[1]Raio X: R$300,00\n[2]Sangue: R$150,00\n[3]Espermograma: R$250,00\n[4]Fim\n";
+}
+void escolhas_m() {
+	cout << "[1]Raio X: R$300,00\n[2]Sangue: R$150,00\n[3]Gravidez: R$122,00\n[4]Fim\n";
+}
+
+float calculovalorh(int i) {
+	float valor;
+	switch (i) {
+	case 1: valor = 300.00; break;
+	case 2: valor = 150.00; break;
+	case 3: valor = 250.00; break;
+	default: valor = 0; break;
+	}
+	return valor;
+}
+
+float calculovalorm(int i) {
+	float valor;
+	switch (i) {
+	case 1: valor = 300.00; break;
+	case 2: valor = 150.00; break;
+	case 3: valor = 122.00; break;
+	default: valor = 0; break;
+	}
+	return valor;
+}
+
+int main() {
+
+	int sexo, i = 0;
+	float valor, valort = 0;
+
+	cout << "Escolha o sexo:\n[1]Homem  [2]Mulher\n";
+	cin >> sexo;
+
+	if (sexo == 1) {
+		cout << "Escolha seus exames:\n";
+
+		while (i != 4) {
+			escolhas_h();
+			valor = calculovalorh(i);
+			valort += valor;
+			cin >> i;
+		}
+		cout << fixed;
+
+		cout << "total: R$" << setprecision(2) << valort;
+	}
+	else if (sexo == 2) {
+		cout << "Escolha seus exames:\n";
+
+		while (i != 4) {
+			escolhas_m();
+			valor = calculovalorm(i);
+			valort += valor;
+			cin >> i;
+		}
+		cout << fixed;
+		cout << "total: R$" << setprecision(2) << valort;
+	}
+	
+}
